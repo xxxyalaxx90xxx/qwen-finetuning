@@ -1,0 +1,61 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "alice",
+      "email": "alice@example.com",
+      "created_at": "2026-04-08 18:23:19"
+    },
+    {
+      "id": 2,
+      "username": "bob",
+      "email": "bob@example.com",
+      "created_at": "2026-04-08 18:23:19"
+    }
+  ],
+  "notes": [
+    {
+      "id": 1,
+      "user_id": null,
+      "title": "setup",
+      "content": "\"Installed SQLite database toolkit\" tags:test",
+      "tags": "",
+      "created_at": "2026-04-08 18:23:19"
+    },
+    {
+      "id": 2,
+      "user_id": null,
+      "title": "todo",
+      "content": "\"Learn Qwen fine-tuning\" tags:ai,learning",
+      "tags": "",
+      "created_at": "2026-04-08 18:23:19"
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "name": "myapp",
+      "description": "\"Cool AI project\"",
+      "status": "active",
+      "created_at": "2026-04-08 18:23:19"
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "project_id": 1,
+      "title": "build frontend",
+      "done": 0,
+      "priority": 0,
+      "created_at": "2026-04-08 18:23:19"
+    },
+    {
+      "id": 2,
+      "project_id": 1,
+      "title": "setup database",
+      "done": 1,
+      "priority": 0,
+      "created_at": "2026-04-08 18:23:19"
+    }
+  ]
+}
