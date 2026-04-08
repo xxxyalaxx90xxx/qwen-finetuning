@@ -1,0 +1,4 @@
+{"text": "### Instruction:\nWrite a function to sort a list in Python.\n\n### Response:\n```python\ndef sort_list(lst: list) -> list:\n    \"\"\"Sort a list in ascending order.\"\"\"\n    return sorted(lst)\n```"}
+{"text": "### Instruction:\nExplain what recursion is.\n\n### Response:\nRecursion is a technique where a function calls itself to solve smaller instances of the same problem. It requires a base case to terminate and a recursive case that moves toward the base case."}
+{"text": "### Instruction:\nCreate a REST API endpoint with Express.js.\n\n### Response:\n```javascript\napp.get('/api/users', async (req, res) => {\n  try {\n    const users = await User.find();\n    res.json(users);\n  } catch (error) {\n    res.status(500).json({ error: error.message });\n  }\n});\n```"}
+{"text": "### Instruction:\nWrite a SQL query to find the top 5 users by score.\n\n### Response:\n```sql\nSELECT id, username, score\nFROM users\nORDER BY score DESC\nLIMIT 5;\n```"}
