@@ -37,15 +37,17 @@ while true; do
     echo "  6. Qwen Chat (Groq)"
     echo "  7. Qwen Chat (OpenRouter)"
     echo "  8. Open Colab Fine-tuning"
+    echo "  9. AI Database Assistant"
     echo ""
     echo "  GITHUB"
-    echo "  9. View Repo Status"
-    echo "  10. Push Changes"
+    echo "  10. View Repo Status"
+    echo "  11. Push Changes"
     echo ""
     echo "  SYSTEM"
-    echo "  11. System Info"
-    echo "  12. Running Services"
-    echo "  13. Stop All Services"
+    echo "  12. System Info"
+    echo "  13. Running Services"
+    echo "  14. Start Auto-Backup"
+    echo "  15. Stop All Services"
     echo ""
     echo "  0. Exit"
     echo ""
@@ -74,15 +76,16 @@ while true; do
         6) python3 ~/qwen-chat-groq.py ;;
         7) python3 ~/qwen-chat-openrouter.py ;;
         8) echo "  https://colab.research.google.com/github/xxxyalaxx90xxx/qwen-finetuning/blob/main/colab-finetune.ipynb" ;;
-        9)
+        9) python3 ~/ai-db-assistant.py ;;
+        10)
             echo ""
             cd ~/qwen-finetuning && git log --oneline -3 && echo ""
             git status --short
             ;;
-        10)
+        11)
             cd ~/qwen-finetuning && git add -A && git commit -m "Auto commit" && git push origin main 2>&1 | tail -3
             ;;
-        11)
+        12)
             echo ""
             echo "  OS: $(uname -a)"
             echo "  CPU: $(uname -m)"
@@ -91,7 +94,7 @@ while true; do
             echo "  Python: $(python3 --version 2>&1)"
             echo "  Git: $(git --version 2>&1)"
             ;;
-        12)
+        13)
             echo ""
             echo "  Running Python services:"
             ps aux | grep "python3" | grep -v grep || echo "  None"
@@ -99,9 +102,15 @@ while true; do
             echo "  Ports in use:"
             ss -tlnp 2>/dev/null | grep -E "8888|3000" || netstat -tlnp 2>/dev/null | grep -E "8888|3000" || echo "  Unable to check ports"
             ;;
-        13)
+        14)
+            pkill -f auto-backup-service.sh 2>/dev/null
+            bash ~/auto-backup-service.sh &
+            echo "  Auto-backup started (hourly)"
+            ;;
+        15)
             pkill -f dashboard.py 2>/dev/null
             pkill -f db-api-server.py 2>/dev/null
+            pkill -f auto-backup-service.sh 2>/dev/null
             echo "  All services stopped"
             ;;
         0) echo "  Bye!"; exit 0 ;;
