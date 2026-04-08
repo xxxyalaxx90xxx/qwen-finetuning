@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+  <exported>2026-04-08T22:30:33.106427</exported>
+  <users>
+    <row>
+      <id>1</id>
+      <username>alice</username>
+      <email>alice@example.com</email>
+      <created_at>2026-04-08 18:23:19</created_at>
+    </row>
+    <row>
+      <id>2</id>
+      <username>bob</username>
+      <email>bob@example.com</email>
+      <created_at>2026-04-08 18:23:19</created_at>
+    </row>
+    <row>
+      <id>3</id>
+      <username>charlie</username>
+      <email>c@test.com</email>
+      <created_at>2026-04-08 18:56:23</created_at>
+    </row>
+  </users>
+  <notes>
+    <row>
+      <id>1</id>
+      <user_id></user_id>
+      <title>setup</title>
+      <content>"Installed SQLite database toolkit" tags:test</content>
+      <tags></tags>
+      <created_at>2026-04-08 18:23:19</created_at>
+    </row>
+    <row>
+      <id>2</id>
+      <user_id></user_id>
+      <title>todo</title>
+      <content>"Learn Qwen fine-tuning" tags:ai,learning</content>
+      <tags></tags>
+      <created_at>2026-04-08 18:23:19</created_at>
+    </row>
+    <row>
+      <id>3</id>
+      <user_id></user_id>
+      <title>API Test</title>
+      <content>Created via REST API</content>
+      <tags></tags>
+      <created_at>2026-04-08 18:56:23</created_at>
+    </row>
+    <row>
+      <id>4</id>
+      <user_id></user_id>
+      <title>complete task 1</title>
+      <content>show everything</content>
+      <tags></tags>
+      <created_at>2026-04-08 19:03:18</created_at>
+    </row>
+    <row>
+      <id>5</id>
+      <user_id></user_id>
+      <title>test-note</title>
+      <content>created via ai assistant</content>
+      <tags></tags>
+      <created_at>2026-04-08 19:05:54</created_at>
+    </row>
+    <row>
+      <id>6</id>
+      <user_id></user_id>
+      <title>test-ai-note</title>
+      <content>created by ai assistant automatically</content>
+      <tags></tags>
+      <created_at>2026-04-08 19:15:27</created_at>
+    </row>
+  </notes>
+  <projects>
+    <row>
+      <id>1</id>
+      <name>myapp</name>
+      <description>"Cool AI project"</description>
+      <status>active</status>
+      <created_at>2026-04-08 18:23:19</created_at>
+    </row>
+  </projects>
+  <tasks>
+    <row>
+      <id>1</id>
+      <project_id>1</project_id>
+      <title>build frontend</title>
+      <done>1</done>
+      <priority></priority>
+      <created_at>2026-04-08 18:23:19</created_at>
+    </row>
+    <row>
+      <id>2</id>
+      <project_id>1</project_id>
+      <title>setup database</title>
+      <done>1</done>
+      <priority></priority>
+      <created_at>2026-04-08 18:23:19</created_at>
+    </row>
+    <row>
+      <id>3</id>
+      <project_id>1</project_id>
+      <title>Test API</title>
+      <done></done>
+      <priority>5</priority>
+      <created_at>2026-04-08 18:56:24</created_at>
+    </row>
+    <row>
+      <id>4</id>
+      <project_id>1</project_id>
+      <title>Fix critical login bug</title>
+      <done></done>
+      <priority>5</priority>
+      <created_at>2026-04-08 20:18:07</created_at>
+    </row>
+    <row>
+      <id>5</id>
+      <project_id>1</project_id>
+      <title>Add new feature later</title>
+      <done></done>
+      <priority>2</priority>
+      <created_at>2026-04-08 20:18:08</created_at>
+    </row>
+    <row>
+      <id>6</id>
+      <project_id>1</project_id>
+      <title>Important database update</title>
+      <done></done>
+      <priority>3</priority>
+      <created_at>2026-04-08 20:18:08</created_at>
+    </row>
+    <row>
+      <id>7</id>
+      <project_id>1</project_id>
+      <title>Maybe add dark mode</title>
+      <done></done>
+      <priority>2</priority>
+      <created_at>2026-04-08 20:18:08</created_at>
+    </row>
+  </tasks>
+</database>
