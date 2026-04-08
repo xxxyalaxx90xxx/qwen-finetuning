@@ -1,0 +1,26 @@
+[
+  {
+    "timestamp": "2026-04-08T22:18:09.184100",
+    "tables": {
+      "users": {
+        "count": 3
+      },
+      "notes": {
+        "count": 6
+      },
+      "projects": {
+        "count": 1
+      },
+      "tasks": {
+        "total": 7,
+        "pending": 5,
+        "avg_priority": 3.4
+      }
+    },
+    "recommendations": [
+      "System is optimally configured"
+    ],
+    "tuning_applied": [],
+    "db_size_kb": 84
+  }
+]
