@@ -39,15 +39,22 @@ while true; do
     echo "  8. Open Colab Fine-tuning"
     echo "  9. AI Database Assistant"
     echo ""
+    echo "  MODS & TUNING"
+    echo "  10. Performance Tuning"
+    echo "  11. Security Module"
+    echo "  12. Notifications"
+    echo "  13. Analytics & Reports"
+    echo "  14. System Monitor"
+    echo ""
     echo "  GITHUB"
-    echo "  10. View Repo Status"
-    echo "  11. Push Changes"
+    echo "  15. View Repo Status"
+    echo "  16. Push Changes"
     echo ""
     echo "  SYSTEM"
-    echo "  12. System Info"
-    echo "  13. Running Services"
-    echo "  14. Start Auto-Backup"
-    echo "  15. Stop All Services"
+    echo "  17. System Info"
+    echo "  18. Running Services"
+    echo "  19. Start Auto-Backup"
+    echo "  20. Stop All Services"
     echo ""
     echo "  0. Exit"
     echo ""
@@ -56,63 +63,25 @@ while true; do
 
     case $choice in
         1) python3 ~/database-toolkit.py ;;
-        2)
-            echo ""
-            echo "  Dashboard: http://localhost:8888"
-            echo "  Open in browser: termux-open-url http://localhost:8888"
-            termux-open-url http://localhost:8888 2>/dev/null || open http://localhost:8888 2>/dev/null || echo "  URL: http://localhost:8888"
-            ;;
-        3)
-            pkill -f db-api-server.py 2>/dev/null
-            python3 ~/db-api-server.py &
-            echo "  API started on port 3000"
-            ;;
+        2) termux-open-url http://localhost:8888 2>/dev/null || echo "  http://localhost:8888" ;;
+        3) pkill -f db-api-server.py 2>/dev/null; python3 ~/db-api-server.py &; echo "  API started" ;;
         4) bash ~/backup-db.sh ;;
-        5)
-            echo ""
-            echo "  Backups:"
-            ls -lh ~/backups/ 2>/dev/null || echo "  No backups found"
-            ;;
+        5) ls -lh ~/backups/ 2>/dev/null || echo "  No backups" ;;
         6) python3 ~/qwen-chat-groq.py ;;
         7) python3 ~/qwen-chat-openrouter.py ;;
         8) echo "  https://colab.research.google.com/github/xxxyalaxx90xxx/qwen-finetuning/blob/main/colab-finetune.ipynb" ;;
         9) python3 ~/ai-db-assistant.py ;;
-        10)
-            echo ""
-            cd ~/qwen-finetuning && git log --oneline -3 && echo ""
-            git status --short
-            ;;
-        11)
-            cd ~/qwen-finetuning && git add -A && git commit -m "Auto commit" && git push origin main 2>&1 | tail -3
-            ;;
-        12)
-            echo ""
-            echo "  OS: $(uname -a)"
-            echo "  CPU: $(uname -m)"
-            echo "  Uptime: $(uptime)"
-            echo "  Disk: $(df -h ~ | tail -1 | awk '{print $4}') free"
-            echo "  Python: $(python3 --version 2>&1)"
-            echo "  Git: $(git --version 2>&1)"
-            ;;
-        13)
-            echo ""
-            echo "  Running Python services:"
-            ps aux | grep "python3" | grep -v grep || echo "  None"
-            echo ""
-            echo "  Ports in use:"
-            ss -tlnp 2>/dev/null | grep -E "8888|3000" || netstat -tlnp 2>/dev/null | grep -E "8888|3000" || echo "  Unable to check ports"
-            ;;
-        14)
-            pkill -f auto-backup-service.sh 2>/dev/null
-            bash ~/auto-backup-service.sh &
-            echo "  Auto-backup started (hourly)"
-            ;;
-        15)
-            pkill -f dashboard.py 2>/dev/null
-            pkill -f db-api-server.py 2>/dev/null
-            pkill -f auto-backup-service.sh 2>/dev/null
-            echo "  All services stopped"
-            ;;
+        10) python3 ~/perf-tuning.py ;;
+        11) python3 ~/security.py ;;
+        12) python3 ~/notifications.py ;;
+        13) python3 ~/analytics.py ;;
+        14) python3 ~/system-monitor.py ;;
+        15) cd ~/qwen-finetuning && git log --oneline -3 && echo "" && git status --short ;;
+        16) cd ~/qwen-finetuning && git add -A && git commit -m "Auto commit" && git push origin main 2>&1 | tail -3 ;;
+        17) echo ""; uname -a; echo "  Disk: $(df -h ~ | tail -1 | awk '{print $4}') free"; python3 --version; git --version ;;
+        18) echo ""; ps aux | grep -E "python3|bash" | grep -v grep | awk '{printf "  PID: %s | %s\n", $2, $11}' ;;
+        19) pkill -f auto-backup-service.sh 2>/dev/null; bash ~/auto-backup-service.sh &; echo "  Auto-backup started" ;;
+        20) pkill -f dashboard.py 2>/dev/null; pkill -f db-api-server.py 2>/dev/null; pkill -f auto-backup-service.sh 2>/dev/null; echo "  All stopped" ;;
         0) echo "  Bye!"; exit 0 ;;
         *) echo "  Invalid choice" ;;
     esac
